@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trabalho de Saneamento Básico </title>
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: white;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            height: 100vh;
+            font-family: 'League Spartan', sans-serif;
+        }
+        .background-image {
+            width: 100%;
+            height: 35%;
+            background-image: url('https://yt3.ggpht.com/k-F4e3HZbp4-tHdNrZr5u7_ffPh-bcLuLvahawk5sn6kp3bKsojMiEdaG8WFTB3XJattvGyBKnNtJPs=s1600-rw-nd-v1');
+            background-size: cover;
+            background-position: center;
+        }
+        .text {
+            color: green;
+            font-size: 30px;
+            text-align: center;
+            margin: 20px 15px;
+            animation: fadeIn 0.7s;
+        }
+        .button-container {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .button-container button {
+            background-color: green;
+            color: white;
+            border: none;
+            padding: 15px 20px;
+            margin: 10px;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 10px;
+            width: 80%;
+            animation: fadeIn 0.7s;
+        }
+        .transparent-button {
+            background-color: white;
+            color: green;
+            border: 2px solid green;
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 10px;
+            width: 80%;
+            animation: fadeIn 0.7s;
+        }
+        .change-color-button {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-image: url('');
+            background-size: cover;
+            background-position: center;
+            border: 5px;
+            cursor: pointer;
+            animation: fadeIn; 0,7s
+        }
+        .top-right-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-image: url('https://yt3.googleusercontent.com/8_Z03ANYgzLdM6P6X0jlWGIjzJiX21DH5foRKkm6bvPZknimeEioJpGJdeKkhpFA-NLN6a5rULQ=s160-c-k-c0x00ffffff-no-rj');
+            background-size: cover;
+            background-position: center;
+            border: none;
+            cursor: pointer;
+            animation: fadeIn 0.7s;
+        }
+        .text2 {
+            color: white;
+            font-size: 20px;
+            text-align: center;
+            margin: 10px 10px;
+            animation: fadeIn 0.7s
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes blink {
+            0% { opacity: 1; }
+            50% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+    </style>
+    <script>
+        let clickCount = 0;
+        const colors = [
+            { background: 'red', text: 'white', text2:'red' },
+            { background: 'lightblue', text: 'white', text2: 'lightblue'},
+            { background: 'purple', text: 'white', text2: 'purple'},
+            { background: '', text: 'white', text2:'black' }
+        ];
+
+        function changeButtonColors() {
+            clickCount++;
+            const buttons = document.querySelectorAll('.button-container button, .transparent-button');
+            const text = document.querySelector('.text');
+
+            if (clickCount < 4) {
+                const color = colors[(clickCount - 1) % colors.length];
+                buttons.forEach(button => {
+                    button.style.backgroundColor = color.background;
+                    button.style.color = color.text;
+                });
+                text.style.color = color.background;
+            } else {
+                buttons.forEach(button => {
+                    button.style.animation = 'blink 0.2s infinite';
+                });
+                text.style.animation = 'blink 0.2s infinite';
+                setTimeout(() => {
+                    buttons.forEach(button => {
+                        button.style.animation = '';
+                    });
+                    text.style.animation = '';
+                    alert("Obrigado por usar o site! feito por: Mateus Leal");
+                    clickCount = 0;
+                }, 5000);
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="background-image"></div>
+    <button class="change-color-button" onclick="changeButtonColors()"></button>
+    <div class="text">Esse site foi feito por um aluno para revelar mais detalhes sobre o trabalho de saneamento básico </div>
+    <div class="button-container">
+        <button onclick="window.location.href='https://drive.google.com/file/d/17mQCpbU9qpB9rHi_MeaqpzAMDEr02aCE/view?usp=drivesdk'">Saneamento Básico</button>
+        <button onclick="window.location.href='https://drive.google.com/file/d/19uNE5jZES86dNSSvVPcwyRL-kLMBCXpJ/view?usp=drivesdk'">Sustentabilidade</button>
+        <button onclick="window.location.href='https://drive.google.com/file/d/19vi0L4-NQ-4c7csbqDuVOYG1IAZ3t-e3/view?usp=drivesdk'">Créditos</button>
+    </div>
+    <button class="top-right-button" onclick="window.location.href='https://youtube.com/@mateuslealedicoes?si=068SZ1TFVifwG8b_'"></button>
+    <div class="text2"> Site desenvolvido por: Mateus Leal </div>
+        <div class="text2"> Site desenvolvido por: Mateus Leal </div>
+</body>
+</html>
